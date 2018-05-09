@@ -1,0 +1,43 @@
+Há basicamente dois tipos de cargas verticais em lajes maciças, \textbf{cargas permanentes} e \textbf{cargas acidentais}. A primeira sempre existirá na vida útil do edifício, a segunda é decorrente da utilização do ambiente. As cargas acidentais são tabeladas e definidas pela \textbf{NBR 6120}.
+
+As cargas permanentes podem ser subdivididas em quatro, sendo:
+
+\begin{itemize}
+
+	\item \textbf{Peso próprio da laje (g1)}:
+	
+		$$g1=\gamma_c \cdot h$$
+
+		Onde $\gamma_c$ é o peso específico da laje em $kN/m^3$ e $h$ é a altura da laje em $m$. Portanto, a unidade de $g1$ é $kN/m^2$, ficando em função da área da laje.
+		
+	\item \textbf{Revestimento (g2)}:
+		Considera-se geralmente de $1,0$ a $1,5$ $kN/m^2$.
+		
+	\item \textbf{Enchimento (g3)}:
+		Encontra-se geralmente no teto de banheiros, onde há passagem da tubulação.
+		
+		$$g3=\gamma_e \cdot h_e$$
+		
+		Onde $\gamma_e$ é o peso específico do enchimento em $kN/m^3$ e $h_e$ é a altura do enchimento em $m$. Portanto, a unidade de $g3$ é $kN/m^2$, ficando em função da área da laje.
+		
+	\item \textbf{Alvenaria direta sobre a laje (g4)}:
+		Consiste na consideração da influência das paredes sobre a laje.
+		
+		$$g4=\frac{\gamma_a \cdot V_a}{lx \cdot ly}$$
+		
+		Onde $\gamma_a$ é o peso específico da alvenaria em $kN/m^3$, $V_a$ é o volume da alvenaria em $m^3$, $lx$ e $ly$ são o menor e maior vão da laje, respectivamente, em $m$. Portanto, a unidade de $g4$ é $kN/m^2$, ficando em função da área da laje.		
+		
+\end{itemize}
+
+Alguns exemplos de cargas acidentais em edifícios (NBR 6120):
+
+\begin{itemize}
+	\item Dormitório, sala, cozinha e banheiro ($1,5$ $kN/m^2$);
+	\item Despensa, área de serviço ($2,0$ $kN/m^2$);
+	\item Varanda ($3,0$ $kN/m^2$).
+\end{itemize}
+
+Conhecendo-se as cargas permanentes e acidentais, considera-se a carga final na laje ($P$) como: $$P=P_{pe}+P_{ac}=(g1+g2+g3+g4)+P_{ac}$$
+
+Onde $P_{pe}$ é a carga permanente total e $P_{ac}$ é a carga acidental do ambiente.
+A carga final é utilizada para definir o carregamento nas vigas adjacentes às lajes.
