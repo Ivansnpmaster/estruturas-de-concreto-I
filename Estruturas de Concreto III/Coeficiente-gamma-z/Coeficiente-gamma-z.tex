@@ -19,8 +19,13 @@ Onde $\Delta M_{total, d}$ é a soma dos produtos de todas as forças verticais 
 
 $P_d$ é a soma de todas as cargas verticais ($g$ e $q$) multiplicada pela majoração do concreto, já $d_{horiz}$ é o deslocamento horizontal devido à carga horizontal (obtido no FTOOL).
 
-$$\sum_{i=1}^{n} F_{d, i}\cdot H_i$$
+$$M_{1, total, d}=\sum_{i=1}^{n} F_{d, i}\cdot H_i$$
 
-*Inserir imagem
+\begin{figure}[H]
+	\begin{center}
+	\caption{$M_{1, total, d}$ identificado na estrutura.}
+    	\includegraphics[width=0.5\textwidth]{Coeficiente-gamma-z/Imagens/M1-total-d.png}
+	\end{center}
+\end{figure}
 
 Com isso,é possível verificar o deslocamento horizontal máximo permitido pela NBR 6118 - tabela 13.3. No topo é $H/1700$ e entre pavimentos é $H_{pisos}/850$, adotando-se coeficiente de pressão dinâmica do vento para cálculo do estado limite $\psi_1=0,30$.
