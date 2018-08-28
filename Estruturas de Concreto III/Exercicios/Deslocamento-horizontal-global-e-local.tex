@@ -1,0 +1,177 @@
+Exercício: Verificar o deslocamento horizontal (global e local) da estrutura abaixo em relação aos limites impostos pela NBR 6118 através do coeficiente $\gamma_z$, considerando somente a primeira combinação do ELU, sabendo-se que:
+
+\begin{itemize}
+	\item Edifício com térreo + 6 pavimentos;
+	\item Altura entre pisos de 3 $m$;
+	\item Carga acidental no andar-tipo de 191,52 $kN$;
+	\item Carga acidental na cobertura de 63,84 $kN$;
+	\item Carga permanente no andar-tipo de 1380,48 $kN$;
+	\item Carga permanente na cobertura de 732,576 $kN$;
+	\item Pilares de (12x40) $cm$;
+	\item Quatro pilares na face do vento.
+\end{itemize}
+
+Nota: As unidades de carga descritas acima representam as reações de apoio das vigas nos pilares.
+
+Dada a quantidade de valores para manuseio, recomenda-se para o leitor utilizar alguma planilha eletrônica para faciltar a compreensão. O primeiro passo é colocar as seguintes cargas no pórtico do presente exercício, atentando-se ao fato de que os valores de carga de vento ($H_v$) devem ser divididos pela quantidade de pilares na face do vento (4).
+
+\begin{table}[H]
+	\centering
+	\caption{Valores de cota ($z$) e valores de carga de vento ($H_v$) para o presente exercício.}
+	\begin{tabular}{c|c}
+	\hline
+	z ($m$) & $H_v$ ($kN$) \\ \hline
+	3       & 19,255       \\
+	6       & 22,740       \\
+	9       & 25,065       \\
+	12      & 26,857       \\
+	15      & 28,333       \\
+	18      & 29,602       \\
+	21      & 15,358       \\ \hline
+	\end{tabular}
+\end{table}
+
+Monta-se o pórtico no FTOOL e coloca-se 1/4 da carga de $H_v$ em cada pilar, de modo a ficar como segue:
+
+%Inserir imagem do pórtico com as cargas
+
+Neste exercício, o vento é considerado como efeito secundário, portanto, deve ser minorado por um coeficiente $\phi$, que no presente exercício equivale a 0,6 (valor para pressão dinâmica do vento para estruturas em geral, vide tabela 11.2 da NBR 6118).
+
+Todo o exercício objetiva o encontro de $\gamma_z$ para verificar a estabilidade global do edifício e qual tipo de nó está presente na estrutura, com ele pode-se verificar se será necessário considerar os efeitos de 2ª ordem. Os parâmetros de $\gamma_z$ são $M_{1, total, d}$ e $\Delta M_{total, d}$, que são a carga horizontal final e a carga vertical, respectivamente.
+
+O próximo passo é preencher a seguinte tabela:
+
+\begin{table}[H]
+\centering
+\caption{Tabela a ser preenchida para facilitar o cálculo de $\gamma_z$.}
+\label{tab:Tabela-exercicio-vento}
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorada$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+2 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+3 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+4 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+5 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+6 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+7 &  &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\ \hline
+Total &  &  &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+Onde $F_{d, minorada}$ é a carga de vento minorada (já que o respectivo efeito é considerado secundário; é a minoração de $H_v$), $M_{1, total, d}$ é o momento fletor que a carga horizontal causa na estrutura, $Pd$ é a carga vertical atuante na estrutura ($g+q$) unitária de cada andar, $d_{horiz}$ é o deslocamento horizontal causado pela carga horizontal (obtido no FTOOL), $d_{horiz}$ minorado é o deslocamento horizontal causado pela carga horizontal minorado (novamente, o efeito dos ventos está sendo considerado como secundário no exercício) e $\Delta M_{total, d}$ é o momento fletor gerado pelo deslocamento horizontal causado pelas cargas verticais. O 7º andar é a cobertura.
+
+Calcula-se $F_{d, minorada}$ pela equação: $$F_{d, minorada}=1,4\cdot\phi\cdot H_v$$
+
+Por exemplo, para o 1º e 2º andar, respectivamente: $$F_{d, minorada}=1,4\cdot 0,6\cdot 19,255\;kN=16,1742\;kN$$, $$F_{d, minorada}=1,4\cdot 0,6\cdot 22,740\;kN=19,1016\;kN$$
+
+Preenchendo a respectiva coluna na Tabela~\ref{tab:Tabela-exercicio-vento}, tem-se:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorado$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 & 16,1742 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+2 & 19,1016 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+3 & 21,0546 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+4 & 22,5599 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+5 & 23,7997 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+6 & 24,8657 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+7 & 12,9007 &  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\ \hline
+Total &  &  &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+Agora, pode-se calcular o momento fletor ($M_{1, total, d}$) causado por cada força horizontal $F_{d, minorada}$ em relação à base do edifício. Para o 1º e 2º andar, tem-se, respectivamente:
+$$M_{1, total, d}=F_{d, minorada}\cdot z=16,1742\;kN\cdot 300\;cm=4852,26\;kN\cdot cm$$
+$$M_{1, total, d}=F_{d, minorada}\cdot z=19,1016\;kN\cdot 600\;cm=11460,96\;kN\cdot cm$$
+
+Note que a cota ($z$) é a altura que o respectivo pavimento está da base. Preenchendo a respectiva coluna na Tabela~\ref{tab:Tabela-exercicio-vento}, tem-se:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorada$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 & 16,1742 & 4852,26 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+2 & 19,1016 & 11460,96 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+3 & 21,0546 & 18949,14 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+4 & 22,5599 & 27071,88 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+5 & 23,7997 & 35699,55 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+6 & 24,8657 & 44758,26 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\
+7 & 12,9007 & 27091,47 & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} &  &  \\ \hline
+Total &  & 169883,53 &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+A carga vertical $P_d$ é a mesma para todos os pavimentos tipo, sendo: $$P_d=g+q=1,4\cdot1380,48\;kN+1,4\cdot191,52\;kN=2200,8\;kN$$
+
+A carga vertical $P_d$ para a cobertura é: $$P_d=g+q=1,4\cdot 732,576\;kN+1,4\cdot63,84\;kN=1114,9824\;kN$$
+
+Preenchendo a respectiva coluna na Tabela~\ref{tab:Tabela-exercicio-vento}, tem-se:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorada$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 & 16,1742 & 4852,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+2 & 19,1016 & 11460,96 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+3 & 21,0546 & 18949,14 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+4 & 22,5599 & 27071,88 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+5 & 23,7997 & 35699,55 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+6 & 24,8657 & 44758,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{} &  &  \\
+7 & 12,9007 & 27091,47 & \multicolumn{1}{c|}{1114,9824} & \multicolumn{1}{c|}{} &  &  \\ \hline
+Total &  & 169883,53 &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+O valor de $d_{horiz}$ é obtido através do software livre FTOOL. Preenchendo a respectiva coluna na Tabela~\ref{tab:Tabela-exercicio-vento}, tem-se:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorada$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 & 16,1742 & 4852,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{0,3228} &  &  \\
+2 & 19,1016 & 11460,96 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{0,7735} &  &  \\
+3 & 21,0546 & 18949,14 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,1816} &  &  \\
+4 & 22,5599 & 27071,88 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,5184} &  &  \\
+5 & 23,7997 & 35699,55 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,7743} &  &  \\
+6 & 24,8657 & 44758,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,9440} &  &  \\
+7 & 12,9007 & 27091,47 & \multicolumn{1}{c|}{1114,9824} & \multicolumn{1}{c|}{2,0326} &  &  \\ \hline
+Total &  & 169883,53 &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+O valor contido na tabela de $d_{horiz}$ foi obtido no FTOOL a partir da carga $H_v$ (não minorada). Para obtermos $d_{horiz, minorada}$, deve-se minorar $d_{horiz}$ pelos mesmos fatores utilizados para minorar $H_v$. Para o 1º e 2º andar, tem-se:
+$$d_{horiz, minorada}=1,4\cdot\phi\cdot d_{horiz}=1,4\cdot0,6\cdot 0,3228\;cm=0,2712\;cm$$ $$d_{horiz, minorada}=1,4\cdot\phi\cdot d_{horiz}=1,4\cdot0,6\cdot 0,7735\;cm=0,6497\;cm$$
+
+Preenchendo a respectiva coluna na Tabela~\ref{tab:Tabela-exercicio-vento}, tem-se:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c|ccc|c}
+\hline
+Andar & $F_d$ $minorada$ & $M_{1, total, d}$ & \multicolumn{1}{c|}{$P_d$} & \multicolumn{1}{c|}{$d_{horiz}$} & $d_{horiz}$ $minorada$ & $\Delta M_{total, d}$ \\
+ & ($kN$) & ($kN\cdot cm$) & \multicolumn{1}{c|}{($kN$)} & \multicolumn{1}{c|}{($cm$) (FTOOL)} & ($cm$) & ($kN\cdot cm$) \\ \hline
+1 & 16,1742 & 4852,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{0,3228} & 0,2712 &  \\
+2 & 19,1016 & 11460,96 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{0,7735} & 0,6497 &  \\
+3 & 21,0546 & 18949,14 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,1816} & 0,9925 &  \\
+4 & 22,5599 & 27071,88 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,5184} & 1,2755 &  \\
+5 & 23,7997 & 35699,55 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,7743} & 1,4904 &  \\
+6 & 24,8657 & 44758,26 & \multicolumn{1}{c|}{2200,800} & \multicolumn{1}{c|}{1,9440} & 1,6330 &  \\
+7 & 12,9007 & 27091,47 & \multicolumn{1}{c|}{1114,9824} & \multicolumn{1}{c|}{2,0326} & 1,7074 &  \\ \hline
+Total &  & 169883,53 &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7} 
+\end{tabular}
+\end{table}
+
+A última coluna da tabela, $\Delta M_{total, d}$, que é o momento fletor causado pela carga vertical e excentricidade causada pela carga horizontal, é, para o 1º e 2º andar, respectivamente:
+$$\Delta M_{total, d}=P_d\cdot d_{horiz, minorada}=2200,800\;kN\cdot0,2712\;cm=596,7513\;kN\cdot cm$$
+$$\Delta M_{total, d}=P_d\cdot d_{horiz, minorada}=2200,800\;kN\cdot0,6497\;cm=1429,9478\;kN\cdot cm$$
