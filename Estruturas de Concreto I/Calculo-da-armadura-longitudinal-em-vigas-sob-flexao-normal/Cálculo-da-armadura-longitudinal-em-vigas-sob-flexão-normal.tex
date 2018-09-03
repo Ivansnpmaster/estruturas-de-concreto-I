@@ -1,3 +1,72 @@
 O cálculo da quantidade de armadura longitudinal para seções transversais retangulares, conhecidos a resistência do concreto ($f_{ck}$), a largura da seção ($b_w$), a altura útil ($d$) e o tipo de aço ($f_{yd}$ e $\epsilon_{yd}$), é feito de maneira simples, a partir do equilíbrio das forças atuantes na seção. Será estudada a flexão normal pura e simples, representada pelos domínios 2, 3, 4 e 4a.
 
-\input{Calculo-da-armadura-longitudinal-em-vigas-sob-flexao-normal/Equacionamento.tex}
+Considerando o seguinte problema: Conhecidos $f_{ck}$, $b_w$, $d$, tipo de aço ($f_{yd}$ e $\epsilon_{yd}$) e o momento de cálculo $M_d$ ($M_d=1,4\cdot M_k$), determinar a área da armadura longitudinal necessária, ($A_s$) para que uma viga de concreto armado e de seção transversal retangular resista a esse momento fletor.
+
+*Inserir figura
+\begin{itemize}
+	\item \textbf{Equilíbrio das forças atuantes normais à seção transversal}: Como não há força externa, a força atuante no concreto ($F_c$), deve ser igual à força atuante na armadura ($F_s$):
+		\begin{equation}
+			\label{equacao-equilibrio-forcas}
+			\sum F=0\rightarrow F_s-F_c=0\rightarrow F_s=F_c
+		\end{equation}
+
+	\item \textbf{Equilíbrio dos momentos}: O momento das forças internas em relação a qualquer ponto (no caso, em relação ao ponto $C.G.$ da armadura) deve ser igual ao momento externo de cálculo:
+		\begin{equation}
+			\label{equacao-equilibrio-momentos}
+			\sum M=M_d\rightarrow M_d=F_c\cdot z
+		\end{equation}
+\end{itemize}
+
+Das Equações~\eqref{equacao-equilibrio-forcas} e~\eqref{equacao-equilibrio-momentos}, tem-se:
+\begin{equation}
+	\label{equacao-momento-de-calculo1}
+	M_d=F_s\cdot z
+\end{equation}
+
+\begin{itemize}
+	\item \textbf{Posição da linha neutra ($x$)}: Conhecendo a posição da linha neutra, é possível saber o domínio em que a peça está trabalhando e calcular a resultante das tensões de compressão no concreto ($F_c$) e o braço de alavanca ($z$).
+		\begin{equation}
+			\label{equacao-resultante-fc}
+			F_c=(0,85\cdot f_{cd})\cdot(b_w)\cdot(0,8\cdot x)
+		\end{equation}
+		\begin{equation}
+			\label{equacao-z}
+			z=d-0,4\cdot x
+		\end{equation}
+\end{itemize}
+
+Colocando $F_c$ e $z$ na Equação~\eqref{equacao-equilibrio-momentos}, tem-se:
+\begin{equation}
+	M_d=F_c\cdot z=(0,85\cdot f_{cd}\cdot b_w\cdot0,8\cdot x)\cdot(d-0,4\cdot x)=b_w\cdot f_{cd}\cdot0,68\cdot x\cdot(d-0,4\cdot x)
+\end{equation}
+
+Ou, ainda:
+\begin{equation}
+	\label{equacao-momento-de-calculo}
+	M_d=(0,68\cdot x\cdot d-0,272\cdot x^2)\cdot b_w\cdot f_{cd}
+\end{equation}
+
+Resolvendo a Equação~\eqref{equacao-momento-de-calculo} obtém-se $x$, o qual define a posição da linha neutra, que é fundamental para a solução do problema proposto. Nota-se que a variação de $x$ não é linear com o esforço solicitante $M_d$, mas segue um polinômio do segundo grau. Resolvendo a Equação~\eqref{equacao-momento-de-calculo} para $x$, tem-se:
+\begin{equation}
+	\label{equacao-linha-neutra1}
+	x=1,25\cdot d\cdot\left(1\pm\sqrt{1-\frac{M_d}{0,425\cdot b_w\cdot f_{cd}\cdot d^2}}\right)
+\end{equation}
+
+Como a soma na Equação~\eqref{equacao-linha-neutra1} não tem sentido físico, tem-se, portanto:
+\begin{equation}
+	\label{equacao-linha-neutra}
+	x=1,25\cdot d\cdot\left(1-\sqrt{1-\frac{M_d}{0,425\cdot b_w\cdot f_{cd}\cdot d^2}}\right)
+\end{equation}
+
+\begin{itemize}
+	\item \textbf{Cálculo da área necessária de armadura ($A_s$)}: Com o valor de $x$ determinado, é possível encontrar $A_s$. A força na armadura ($F_s$) vem do produto da área de aço ($A_s$) pela tensão atuante no aço ($f_s$). Da Equação~\eqref{equacao-momento-de-calculo1}, tem-se $M_d/z=F_s=f_s\cdot A_s$, resultando em:
+\end{itemize}
+\begin{equation}
+	\label{equacao-area-de-aco1}
+	A_s=\frac{M_d}{z\cdot f_s}
+\end{equation}
+
+Admitindo que a peça esteja trabalhando no domínio 2 ou 3, para um melhor aproveitamento da armadura, tem-se $\epsilon_s\geqslant\epsilon_{yd}$, resultando na tensão de escoamento na armadura ($f_s=f_{yd}$); caso contrário, tira-se o valor de $\epsilon_s$ do diagrama de tensão \textit{versus} deformação do aço e calcula-se $f_s$. A Equação~\eqref{equacao-area-de-aco1} modifica-se:
+\begin{equation}
+	A_s=\frac{M_d}{z\cdot f_{yd}}
+\end{equation}
