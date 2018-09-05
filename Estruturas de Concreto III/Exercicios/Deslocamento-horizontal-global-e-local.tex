@@ -33,7 +33,7 @@ Dada a quantidade de valores para manuseio, recomenda-se para o leitor utilizar 
 
 Monta-se o pórtico no FTOOL e coloca-se 1/4 da carga de $H_v$ em cada pilar, de modo a ficar como segue:
 
-%Inserir imagem do pórtico com as cargas
+*Inserir imagem do pórtico com as cargas
 
 Neste exercício, o vento é considerado como efeito secundário, portanto, deve ser minorado por um coeficiente $\psi_0$, que no presente exercício equivale a 0,6 (valor para pressão dinâmica do vento para estruturas em geral, vide tabela 11.2 da NBR 6118).
 
@@ -62,7 +62,8 @@ Total &  &  &  &  &  &  \\ \cline{1-1} \cline{3-3} \cline{7-7}
 
 Onde $F_{d, minorada}$ é a carga de vento minorada (já que o respectivo efeito é considerado secundário; é a minoração de $H_v$), $M_{1, total, d}$ é o momento fletor que a carga horizontal causa na estrutura, $Pd$ é a carga vertical atuante na estrutura ($g+q$) unitária de cada andar, $d_{horiz}$ é o deslocamento horizontal causado pela carga horizontal (obtido no FTOOL), $d_{horiz}\;minorada$ é o deslocamento horizontal causado pela carga horizontal minorada (novamente, o efeito dos ventos está sendo considerado como secundário no exercício) e $\Delta M_{total, d}$ é o momento fletor gerado pelo deslocamento horizontal causado pelas cargas verticais. O 7º pavimento é a cobertura.
 
-Calcula-se $F_{d, minorada}$ pela equação: $$F_{d, minorada}=1,4\cdot\psi_0\cdot H_v$$
+Calcula-se $F_{d, minorada}$ pela equação:
+\begin{equation}F_{d, minorada}=1,4\cdot\psi_0\cdot H_v\end{equation}
 
 Por exemplo, para o 1º e 2º andar, respectivamente: $$F_{d, minorada}=1,4\cdot 0,6\cdot 19,255\;kN=16,1742\;kN$$, $$F_{d, minorada}=1,4\cdot 0,6\cdot 22,740\;kN=19,1016\;kN$$
 
@@ -199,7 +200,7 @@ Agora, pode-se calcular o valor de $\gamma_z$ para verificarmos o tipo de nó pr
 $$\gamma_z=\frac{1}{1-\frac{\Delta M_{total, d}}{M_{1, total, d}}}=\frac{1}{1-\frac{15795,7296\;kN}{169883,53\;kN}}\approx1,1025$$
 
 Portanto, o tipo de nó é móvel ($1,1<\gamma_z\leqslant1,3$). Nós móveis obriga a definição dos efeitos de 2ª ordem para as cargas horizontais. Para isso, a NBR 6118 permite majorar a carga de vento com a equação:
-$$H_{v2}=H_v\cdot0,95\cdot\gamma_z$$
+\begin{equation}H_{v2}=H_v\cdot0,95\cdot\gamma_z\end{equation}
 
 Onde $H_{v2}$ é a nova carga de vento majorada em $kN$, $H_v$ é a carga de vento nos nós da estrutura em $kN$ e $\gamma_z$ é o coeficiente de estabilidade global (adimensional).
 
@@ -226,7 +227,8 @@ O coeficiente $\psi_1$ na penúltima coluna é o valor de pressão dinâmica do 
 $$d_{horiz}\cdot\psi_1=2,0767\cdot0,3=0,6230\;cm$$
 $$d_{horiz}\cdot\psi_1=2,1713\cdot0,3=0,6513\;cm$$
 
-O valor de deslocamento local de cada pavimento deve ser obtido da seguinte forma: $${\Delta_{desloc, 2}}_i={(d_{horiz}\cdot\psi_1)}_i-{(d_{horiz}\cdot\psi_1)}_{i-1}$$
+O valor de deslocamento local de cada pavimento deve ser obtido da seguinte forma:
+\begin{equation}{\Delta_{desloc, 2}}_i={(d_{horiz}\cdot\psi_1)}_i-{(d_{horiz}\cdot\psi_1)}_{i-1}\end{equation}
 
 O valor de $\Delta_{desloc, 2}$ para a cobertura é, portanto: $$\Delta_{desloc, 2}=0,6513-0,6230=0,0283\;cm$$
 

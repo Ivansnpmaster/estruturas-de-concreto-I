@@ -13,13 +13,14 @@ De acordo com a NBR 6118, o limite para o coeficiente é 1,3 e, acima disso, a e
 
 Este método é válido para edifícios acima de 4 andares. Abaixo disso, \textbf{não se deve majorar} as cargas horizontais com $\gamma_z$.
 
-O coeficiente $\gamma_z$ é: $$\gamma_z=\frac{1}{1-\frac{\Delta M_{total, d}}{M_{1, total, d}}}$$
+O coeficiente $\gamma_z$ é:
+\begin{equation}\gamma_z=\frac{1}{1-\frac{\Delta M_{total, d}}{M_{1, total, d}}}\end{equation}
 
-Onde $\Delta M_{total, d}$ é a soma dos produtos de todas as forças verticais atuantes na etrutura com seus valores de cálculo pelos deslocamentos horizontais de seus respectivos pontos de aplicação, sendo: $$\Delta M_{total, d}=P_d\cdot d_{horiz}$$
+Onde $\Delta M_{total, d}$ é a soma dos produtos de todas as forças verticais atuantes na etrutura com seus valores de cálculo pelos deslocamentos horizontais de seus respectivos pontos de aplicação, sendo:
+\begin{equation}\Delta M_{total, d}=P_d\cdot d_{horiz}\end{equation}
 
 $P_d$ é a soma de todas as cargas verticais ($g$ e $q$) multiplicada pela majoração do concreto, já $d_{horiz}$ é o deslocamento horizontal devido à carga horizontal (obtido no FTOOL).
-
-$$M_{1, total, d}=\sum_{i=1}^{n} F_{d, i}\cdot H_i$$
+\begin{equation}M_{1, total, d}=\sum_{i=1}^{n} F_{d, i}\cdot H_i\end{equation}
 
 \begin{figure}[H]
 	\begin{center}

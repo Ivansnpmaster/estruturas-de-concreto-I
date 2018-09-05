@@ -1,0 +1,28 @@
+Para definição da seção de cada tipo de pilar, utiliza-se o \textbf{pilar do térreo}, que é o que recebe maior carga entre todos os pilares e mantém-se essa seção até o último andar.
+
+Sabendo-se as cargas acima do pilar (variável e permanente), $N_d$ será o valor da reação de apoio com as majorações necessárias. Se as cargas forem pré-dimensionadas, é possível também pré-dimensionar a seção dos pilares em função do tipo de pilar e para aço CA-50.
+
+\begin{itemize}
+	\item \textbf{Pilar intermediário}:
+		\begin{equation}A_c=\frac{N_d}{0,5\cdot f_{ck}+0,4}\end{equation}
+	\item \textbf{Pilar de extremidade} e \textbf{pilar de canto}:
+		\begin{equation}A_c=\frac{1,5\cdot N_d}{0,5\cdot f_{ck}+0,4}\end{equation}
+\end{itemize}
+
+Onde $A_c$ é a área da seção transversal do pilar, $N_d$ é a força normal de cálculo e $f_{ck}$ é a resistência característica do concreto à compressão.
+
+Lembrando: Sem ter a seção do pilar ainda definida, $N_d$ é calculada apenas com a majoração do concreto:
+\begin{equation}N_d=\gamma_f\cdot N_k=1,4\cdot N_k\end{equation}
+
+Sabendo-se a área de concreto, devemos consultar a NBR 6118 para saber a área mínima a ser utilizada e também a medida mínima da menor dimensão do pilar.
+
+Item 13.2.3 - A seção transversal de pilares e pilar-paredes maciços, qualquer que seja sua forma, não pode apresentar dimensão menor que 19 $cm$. Em casos especiais, permite-se considerações de dimensões entre 19 e 14 $cm$, desde que se multipliquem os esforços solicitantes de cálculo a serem considerados no dimensionamento por um coeficiente adicional $\gamma_n$, de acordo com o indicado na tabela 13.1 e seção 11 da norma. Em qualquer caso, \textbf{não se permite} pilar com seção transversal de área inferior a 360 ${cm}^2$.
+
+*inserir tabela
+
+A maior dimensão da seção do pilar deve ser sempre em \textbf{múltiplos de 5 $cm$}.
+
+Sabendo-se o valor de $\gamma_n$, pode-se calcular o valor de $N_d$:
+\begin{equation}N_d=\gamma_n\cdot\gamma_f\cdot N_k\end{equation}
+
+*Inserir exercícios
