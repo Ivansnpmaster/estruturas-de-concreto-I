@@ -36,7 +36,12 @@ A NBR 6118 não admite, em nenhum caso, pilares com $\lambda$ superior a 200 par
 
 Para o cálculo do Índice de Esbeltez, a altura e a base da seção transversal do pilar deve ser padronizada, seguindo as \textbf{direções de visão adotadas anteriormente}.
 
-*Inserir imagem
+\begin{figure}[H]
+	\begin{center}
+	\caption{Visualização de $h_x$ e $h_y$ para pilares retangulares, sempre paralelo ao eixo analisado.}
+    	\includegraphics[width=0.5\textwidth]{Indice-de-esbeltez/Imagens/hx-e-hy-de-secao-transversal-pilar.png}
+	\end{center}
+\end{figure}
 
 O cálculo nas duas direções ficará da seguinte forma:
 \begin{equation}\lambda_x=\frac{\sqrt{12}\cdot L_e}{h_x}\end{equation}
@@ -51,3 +56,32 @@ $$\lambda_y=\frac{\sqrt{12}\cdot L_{ey}}{h_y}=\frac{\sqrt{12}\cdot2,9}{0,65}\app
 P2 (80x25):
 $$\lambda_x=\frac{\sqrt{12}\cdot L_{ex}}{h_x}=\frac{\sqrt{12}\cdot2,9}{0,8}\approx12,5573$$
 $$\lambda_y=\frac{\sqrt{12}\cdot L_{ey}}{h_y}=\frac{\sqrt{12}\cdot2,9}{0,25}\approx40,1830$$
+
+Exercício: Utilizando a planta abaixo (fora de escala), calcular o Índice de Esbeltez nas duas direções para o pilar 4. Considerar $4,6\;m$ entre pisos.
+
+\begin{figure}[H]
+	\begin{center}
+	\caption{Planta do pilar 4 e vigas adjacentes.}
+    	\includegraphics[width=0.5\textwidth]{Indice-de-esbeltez/Imagens/Exercicio-Indice-de-Esbeltez.png}
+	\end{center}
+\end{figure}
+
+ Para a direção $x$, tem-se:
+$$
+	L_{e,\;x}\leqslant\left\{
+		\begin{array}{ll}
+		L_0+h=(460-52)+70=478\;cm \\
+		L=\textbf{460\;cm}
+		\end{array}\right.
+$$
+$$\lambda_x=\frac{\sqrt{12}\cdot L_{e,\;x}}{h_x}=\frac{\sqrt{12}\cdot 460\;cm}{25\;cm}\approx63,7394$$
+
+Para a direção $y$, tem-se:
+$$
+	L_{e,\;y}\leqslant\left\{
+		\begin{array}{ll}
+		L_0+h=(460-62)+25=\textbf{423\;cm} \\
+		L=460\;cm
+		\end{array}\right.
+$$
+$$\lambda_y=\frac{\sqrt{12}\cdot L_{e,\;y}}{h_y}=\frac{\sqrt{12}\cdot 423\;cm}{70\;cm}\approx20,9330$$

@@ -25,4 +25,31 @@ A maior dimensão da seção do pilar deve ser sempre em \textbf{múltiplos de 5
 Sabendo-se o valor de $\gamma_n$, pode-se calcular o valor de $N_d$:
 \begin{equation}N_d=\gamma_n\cdot\gamma_f\cdot N_k\end{equation}
 
-*Inserir exercícios
+Exercício: Pré-dimensionar a seção de um pilar intermediário, sabendo-se que: Aço CA-50; Concreto C25 ($f_{ck}=25\;MPa=250\;kgf/{cm}^2$); $\gamma_f=1,4$; $q=14051,52\;kgf$ e $g=144529,92\;kgf$.
+
+Calcular $b=16\;cm$ e depois $b=19\;cm$. Lembre-se que não queremos pilar-parede (onde $h=5\cdot b$).
+
+Para o pilar com $b=16\;cm$, tem-se:
+$$A_c=\frac{N_d}{0,5\cdot f_{ck}+0,4}=\frac{1,4\cdot1,15\cdot(14051,52+144529,92)}{0,5\cdot250+0,4}\approx2036,0137\;{cm}^2$$
+
+Com essa área, checa-se se não é um pilar parede (limite de $5\cdot b=5\cdot16\;cm=80\;cm$):
+$$h=\frac{A_c}{b}=\frac{2036,0137\;{cm}^2}{16\;cm}\approx127,2508\;cm\approx130\;cm$$
+
+O valor de $h$ ultrapassou o limite e, dessa forma, o pilar é considerado pilar-parede.
+
+Para o pilar com $b=19\;cm$, tem-se:
+$$A_c=\frac{N_d}{0,5\cdot f_{ck}+0,4}=\frac{1,4\cdot(14051,52+144529,92)}{0,5\cdot250+0,4}\approx1770,4466\;{cm}^2$$
+$$h=\frac{A_c}{b}=\frac{1770,4466\;{cm}^2}{19\;cm}\approx93,1814\;cm\approx95\;cm$$
+
+O valor de $h$ está dentro do limite ($5\cdot b=5\cdot19\;cm=95\;cm$) e não é considerado pilar-parede.
+
+Exercício: Admitindo-se um pilar intermediário com uma carga axial de $40000\;kgf$; aço CA-50; concreto C25 e $\gamma_f=1,4$ e sabendo-se que o lado maior da seção do pilar é \textbf{duas vezes} o lado menor, qual o valor unitário arredondado para cada lado da seção desse pilar?
+$$A_{c1}=\frac{N_d}{0,5\cdot f_{ck}+0,4}=\frac{1,4\cdot40000}{0,5\cdot250+0,4}\approx446,5709\;{cm}^2$$
+$$A_{c1}=b\cdot(2\cdot b)$$
+$$b=\sqrt{\frac{446,5709\;{cm}^2}{2}}\approx14,9427\;cm\approx15\;cm$$
+
+A área de concreto foi pré-dimensionada sem o $\gamma_n$ (que depende do menor lado do pilar). No caso de $15\;cm$, seria de $\gamma_n=1,20$. É necessário recalcular o valor de área de concreto com esse coeficiente.
+$$A_{c2}=\frac{N_d}{0,5\cdot f_{ck}+0,4}=\frac{1,4\cdot1,20\cdot40000}{0,5\cdot250+0,4}\approx535,8851\;{cm}^2$$
+$$b=\sqrt{\frac{535,8851\;{cm}^2}{2}}\approx16,3689\;cm\approx17\;cm$$
+
+Por mais que o lado de $17\;cm$ tenha outro $\gamma_n$, ele é menor que o $\gamma_n$ de $15\;cm$ e assim sendo, não é necessário pré-dimensionar a área de concreto novamente. O pilar terá um $b=17\;cm$ e $h=34\;cm\approx35\;cm$ (arredondando de 5 em 5 $cm$ para facilitar a execução).
